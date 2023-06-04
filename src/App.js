@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import ChildComponent from './Child';
+import ParentComponent from './ParentComponent';
 
 function App() {
+  const appObject = [
+    {
+        title:"Pradeep",
+        age: "32",
+        email: "Pradeep@gmail.com"
+    },
+    {
+      title:"Pradeep",
+      age: "32",
+      email: "Pradeep@gmail.com"
+  },
+    {
+      title:"Pradeep",
+      age: "32",
+      email: "Pradeep@gmail.com"
+  },
+  {
+    title:"Pradeep",
+    age: "32",
+    email: "Pradeep@gmail.com"
+  }
+];
+
+
+const dataFromChildintoAppComponent = (fromChildComponentData) =>{
+  console.log("Data In App Component");
+  console.log(fromChildComponentData);
+
+  const appComponentObject = {
+    ...fromChildComponentData,
+    id: 'appComponentId'+Math.random().toString()
+  }
+
+  console.log("Data From Child To App Component With Updated Object With New Id");
+  console.log(appComponentObject);
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ParentComponent />
+      <ChildComponent appObject={appObject} getDataToAppComponentFromChild={dataFromChildintoAppComponent}/>
     </div>
   );
 }
