@@ -23,6 +23,8 @@ const ChildForm = (props) =>{
         setEnteredEmail('');
     }
     return (
+        <div>
+        <p><strong>Hello this is Form as Child Component</strong></p>
         <form onSubmit={sendDataFromChild}>
             <legend>Title</legend>
             <input type="text" name="title" value={entertedTitle}  onChange={(e) => setEnteredTitle(e.target.value)}/>
@@ -33,6 +35,7 @@ const ChildForm = (props) =>{
             <legend></legend>
             <button type="submit">Click Here</button>
         </form>
+        </div>
     );
 
 }
